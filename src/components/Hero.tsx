@@ -109,8 +109,8 @@ export default function Hero() {
               </span>
             </motion.a>
             <motion.a
-              href="/Aditya_Gaurav.pdf"
-              download
+              href={`${process.env.__NEXT_ROUTER_BASEPATH || ""}/Aditya_Gaurav.pdf`}
+              download="Aditya_Gaurav.pdf"
               className="px-8 py-4 rounded-full font-semibold border-2 border-accent text-accent hover:bg-accent hover:text-white transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
