@@ -130,7 +130,7 @@ export default function Hero() {
             transition={{ delay: 1 }}
           >
             <motion.a
-              href="https://www.linkedin.com/in/adityagaurav~/"
+              href="https://www.linkedin.com/in/adityagaurav-/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-card-bg border border-card-border hover:border-accent hover:text-accent transition-all duration-300"
@@ -139,7 +139,7 @@ export default function Hero() {
               <FaLinkedin className="w-5 h-5" />
             </motion.a>
             <motion.a
-              href="https://github.com/adityagaurav"
+              href="https://github.com/adityagaurav15"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-card-bg border border-card-border hover:border-accent hover:text-accent transition-all duration-300"

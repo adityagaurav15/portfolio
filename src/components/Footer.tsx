@@ -24,7 +24,7 @@ export default function Footer() {
             <FiMail className="w-5 h-5" />
           </a>
           <a
-            href="https://www.linkedin.com/in/adityagaurav~/"
+            href="https://www.linkedin.com/in/adityagaurav-/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground-secondary hover:text-accent transition-colors"
@@ -33,7 +33,7 @@ export default function Footer() {
             <FaLinkedin className="w-5 h-5" />
           </a>
           <a
-            href="https://github.com/adityagaurav"
+            href="https://github.com/adityagaurav15"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground-secondary hover:text-accent transition-colors"

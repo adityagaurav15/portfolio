@@ -21,8 +21,8 @@ const contactInfo = [
   {
     icon: FiLinkedin,
     label: "LinkedIn",
-    value: "linkedin.com/in/adityagaurav~",
-    href: "https://www.linkedin.com/in/adityagaurav~/",
+    value: "linkedin.com/in/adityagaurav-",
+    href: "https://www.linkedin.com/in/adityagaurav-/",
   },
 ];
 
