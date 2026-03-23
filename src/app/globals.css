@@ -1,26 +1,185 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─── Theme Tokens ─── */
+:root,
+.light {
+  --background: #f8f9fc;
+  --background-secondary: #ffffff;
+  --foreground: #1a1a2e;
+  --foreground-secondary: #4a4a6a;
+  --accent: #6c63ff;
+  --accent-secondary: #ff6b9d;
+  --accent-gradient: linear-gradient(135deg, #6c63ff 0%, #ff6b9d 100%);
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(108, 99, 255, 0.15);
+  --card-shadow: 0 8px 32px rgba(108, 99, 255, 0.08);
+  --nav-bg: rgba(248, 249, 252, 0.85);
+  --nav-border: rgba(108, 99, 255, 0.1);
+  --section-alt: #f0f0ff;
+  --skill-bar-bg: #e8e6ff;
+  --input-bg: #ffffff;
+  --input-border: #d4d2ff;
+}
+
+.dark {
+  --background: #0a0a1a;
+  --background-secondary: #12122a;
+  --foreground: #e4e4f0;
+  --foreground-secondary: #a0a0c0;
+  --accent: #7c73ff;
+  --accent-secondary: #ff7eb3;
+  --accent-gradient: linear-gradient(135deg, #7c73ff 0%, #ff7eb3 100%);
+  --card-bg: rgba(18, 18, 42, 0.8);
+  --card-border: rgba(124, 115, 255, 0.2);
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --nav-bg: rgba(10, 10, 26, 0.9);
+  --nav-border: rgba(124, 115, 255, 0.15);
+  --section-alt: #0f0f25;
+  --skill-bar-bg: #1a1a3a;
+  --input-bg: #12122a;
+  --input-border: #2a2a5a;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
   --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-nav-bg: var(--nav-bg);
+  --color-nav-border: var(--nav-border);
+  --color-section-alt: var(--section-alt);
+  --color-skill-bar-bg: var(--skill-bar-bg);
+  --color-input-bg: var(--input-bg);
+  --color-input-border: var(--input-border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Global Styles ─── */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
+
+/* ─── Glassmorphism Card ─── */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(108, 99, 255, 0.15);
+  border-color: var(--accent);
+}
+
+/* ─── Gradient Text ─── */
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Floating Blob BG ─── */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  animation: float 8s ease-in-out infinite;
+  pointer-events: none;
+}
+.blob-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent);
+  top: -100px;
+  right: -100px;
+  animation-delay: 0s;
+}
+.blob-2 {
+  width: 350px;
+  height: 350px;
+  background: var(--accent-secondary);
+  bottom: -80px;
+  left: -80px;
+  animation-delay: 4s;
+}
+.blob-3 {
+  width: 250px;
+  height: 250px;
+  background: var(--accent);
+  top: 50%;
+  left: 50%;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+/* ─── Section Styles ─── */
+.section-padding {
+  padding: 100px 24px;
+}
+
+/* ─── Typing Cursor ─── */
+.typing-cursor::after {
+  content: "|";
+  animation: blink 1s step-end infinite;
+  color: var(--accent);
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
